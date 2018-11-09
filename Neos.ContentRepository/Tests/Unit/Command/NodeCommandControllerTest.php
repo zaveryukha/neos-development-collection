@@ -71,7 +71,7 @@ class NodeCommandControllerTest extends \Neos\Flow\Tests\UnitTestCase
         //$this->assertEquals($objectManagerMock,$objectManager);
 
         $mockReflectionService = $this->createMock(ReflectionService::class);
-        $mockReflectionService->expects($this->at(0))->method('getAllImplementationClassNamesForInterface')->with(NodeCommandControllerPluginInterface::class)->will($this->returnValue([]));
+        $mockReflectionService->expects($this->atLeastOnce())->method('getAllImplementationClassNamesForInterface')->willReturn([]);
 
         $objectManagerMock->get($mockReflectionService);
 
